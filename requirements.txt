@@ -1,0 +1,13 @@
+requests
+python-dotenv
+speechrecognition
+pyaudio
+pyautogui
+pytesseract
+opencv-python
+pillow
+numpy
+sounddevice
+pydub
+PySide6
+psutil

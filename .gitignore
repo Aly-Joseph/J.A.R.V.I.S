@@ -1,0 +1,29 @@
+# ENV & Secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environments
+venv/
+vision_env/
+
+# Node
+node_modules/
+
+# Local models / voices
+piper/
+voices/
+xtts/
+
+# Temp / tests
+tts_test.py
+xtts_test.py
+test_ui.py
+$null
+
+# OS
+.DS_Store
+Thumbs.db
