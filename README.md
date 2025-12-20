@@ -131,25 +131,13 @@ Think of it as:
 
 ## 🧱 Architecture Overview
 
-```
-Voice Input (Mic)
-   ↓
-Speech Recognition
-   ↓
-Command Router
-   ↓
-Decision Engine (AI)
-   ↓
-Action Layer
-   ├─ System Control
-   ├─ Vision Engine
-   ├─ Internet
-   ├─ Code Generator
-   ↓
-Neural Voice Output
-   ↓
-Jarvis UI (Ring Animation)
-```
+<p align="center">
+  <img src="assets/jarvis-architecture-hud.png" alt="JARVIS System Architecture HUD" width="100%">
+</p>
+
+<p align="center">
+  <i>Iron-Man inspired system flow — J.A.R.V.I.S cognitive and execution pipeline</i>
+</p>
 
 ---
 
