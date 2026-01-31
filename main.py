@@ -9,6 +9,13 @@ from tts_system import speak, stop_speaking, wait_until_done
 from router import route_task
 from brain import ask_ai
 from emotion_ai import detect_emotion
+from continuation_handler import (
+    is_continuation_prompt,
+    start_tracking_task,
+    process_continuation,
+    mark_task_complete,
+    has_active_task
+)
 
 # =========================
 # MEMORY (STRUCTURED JSON)
@@ -33,6 +40,16 @@ from input_control import (
     open_vscode,
     open_calculator,
     type_text_slow
+)
+
+# =========================
+# OPENCLAW ROBOTIC CONTROL
+# =========================
+from openclaw_control import (
+    init_claw,
+    get_claw,
+    process_claw_command,
+    OPENCLAW_AVAILABLE
 )
 
 # =========================
@@ -132,7 +149,16 @@ Respond strictly as JARVIS.
 # MAIN LOOP (UI-FREE, AI-FIRST)
 # =========================
 def jarvis_loop():
-
+    
+    # Initialize OpenClaw if available
+    if OPENCLAW_AVAILABLE:
+        claw = init_claw()
+        if claw.connected:
+            speak("OpenClaw initialized successfully.", "calm")
+        else:
+            speak("OpenClaw not detected. Running in simulation mode.", "calm")
+        wait_until_done()
+    
     # Startup greeting (AI generated)
     startup = jarvis_reply(
         "System boot completed. Greet the user briefly."
@@ -153,11 +179,23 @@ def jarvis_loop():
 
         cmd_lower = cmd.lower()
 
+        # � CHECK FOR CONTINUATION
+        if is_continuation_prompt(cmd) and has_active_task():
+            # User confirmed to continue - process next step
+            print("[CONTINUATION]: Processing next step...")
+            continuation_prompt = process_continuation(cmd)
+            reply = jarvis_reply(continuation_prompt, "calm")
+            speak(reply, "calm")
+            wait_until_done()
+            mark_task_complete()
+            continue
+
         # 🔥 HARD INTERRUPT
         if any(w in cmd_lower for w in INTERRUPT_WORDS):
             stop_speaking()
             speak("Understood.", "serious")
             wait_until_done()
+            mark_task_complete()  # Clear any active tasks
             continue
 
         # ❌ EXIT
@@ -172,6 +210,22 @@ def jarvis_loop():
 
         emotion = detect_emotion(cmd)
         task = route_task(cmd)
+
+        # 🦾 OPENCLAW ROBOTIC CONTROL
+        if task == "openclaw":
+            result = process_claw_command(cmd)
+            if result:
+                speak(jarvis_reply(result, emotion), emotion)
+            else:
+                speak(
+                    jarvis_reply(
+                        "OpenClaw command not recognized.",
+                        emotion
+                    ),
+                    emotion
+                )
+            wait_until_done()
+            continue
 
         # 👁️ VISION READ
         if task == "vision_read":

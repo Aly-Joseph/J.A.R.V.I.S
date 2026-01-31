@@ -2,7 +2,18 @@ def route_task(task: str) -> str:
     t = task.lower()
 
     # ==================================================
-    # 💾 SAVE CURRENT FILE (HIGHEST PRIORITY)
+    # 🦾 OPENCLAW COMMANDS (HIGHEST PRIORITY)
+    # ==================================================
+    if any(x in t for x in [
+        "grab", "grasp", "close", "clench",
+        "release", "open", "drop",
+        "move", "rotate",
+        "claw home", "claw status", "claw report"
+    ]):
+        return "openclaw"
+
+    # ==================================================
+    # 💾 SAVE CURRENT FILE
     # ==================================================
     if any(x in t for x in [
         "save this",

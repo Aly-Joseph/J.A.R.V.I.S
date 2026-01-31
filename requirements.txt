@@ -11,3 +11,4 @@ sounddevice
 pydub
 PySide6
 psutil
+openclaw
