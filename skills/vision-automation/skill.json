@@ -1,0 +1,43 @@
+{
+  "name": "Vision Automation",
+  "slug": "vision-automation",
+  "version": "1.0.0",
+  "description": "Screen reading, object detection, and automated clicking",
+  "author": "Aly-Joseph",
+  "license": "MIT",
+  "keywords": ["vision", "ocr", "screen", "automation", "click"],
+  "category": "Vision",
+  "status": "active",
+  "homepage": "https://github.com/Aly-Joseph/J.A.R.V.I.S",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aly-Joseph/J.A.R.V.I.S.git"
+  },
+  "dependencies": [
+    "opencv-python",
+    "pytesseract",
+    "pyautogui",
+    "pillow"
+  ],
+  "capabilities": [
+    "screen-reading",
+    "ocr",
+    "ui-detection",
+    "click-automation"
+  ],
+  "requiredFiles": [
+    "vision_engine.py",
+    "vision_ocr.py",
+    "vision_click.py"
+  ],
+  "interfaces": {
+    "read_screen_text": {
+      "description": "Read text from screen",
+      "returns": "list"
+    },
+    "click_on_text": {
+      "description": "Click on detected text element",
+      "returns": "bool"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "Memory System",
+  "slug": "memory-system",
+  "version": "1.0.0",
+  "description": "Persistent JSON-based storage for user data and context",
+  "author": "Aly-Joseph",
+  "license": "MIT",
+  "keywords": ["memory", "storage", "context", "persistence", "json"],
+  "category": "Storage",
+  "status": "active",
+  "homepage": "https://github.com/Aly-Joseph/J.A.R.V.I.S",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aly-Joseph/J.A.R.V.I.S.git"
+  },
+  "dependencies": [
+    "json",
+    "os",
+    "datetime"
+  ],
+  "capabilities": [
+    "user-storage",
+    "context-persistence",
+    "conversation-history",
+    "preference-learning"
+  ],
+  "requiredFiles": [
+    "memory.py",
+    "message_memory.py",
+    "continuation_handler.py"
+  ],
+  "interfaces": {
+    "remember": {
+      "description": "Store information",
+      "parameters": {"key": "str", "value": "any"},
+      "returns": "bool"
+    },
+    "recall": {
+      "description": "Retrieve stored information",
+      "parameters": {"key": "str"},
+      "returns": "any"
+    }
+  }
+}

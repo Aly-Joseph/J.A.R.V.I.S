@@ -1,0 +1,33 @@
+{
+  "name": "Task Routing",
+  "slug": "task-routing",
+  "version": "1.0.0",
+  "description": "Intelligent command routing and task prioritization",
+  "author": "Aly-Joseph",
+  "license": "MIT",
+  "keywords": ["routing", "task", "intent", "prioritization"],
+  "category": "Core",
+  "status": "active",
+  "homepage": "https://github.com/Aly-Joseph/J.A.R.V.I.S",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aly-Joseph/J.A.R.V.I.S.git"
+  },
+  "dependencies": [
+    "re"
+  ],
+  "capabilities": [
+    "intent-detection",
+    "command-routing",
+    "task-prioritization",
+    "disambiguation"
+  ],
+  "requiredFiles": ["router.py"],
+  "interfaces": {
+    "route_task": {
+      "description": "Route command to appropriate handler",
+      "parameters": {"task": "str"},
+      "returns": "str"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Emotion Detection",
+  "slug": "emotion-detection",
+  "version": "1.0.0",
+  "description": "Emotional state analysis and response adaptation",
+  "author": "Aly-Joseph",
+  "license": "MIT",
+  "keywords": ["emotion", "sentiment", "analysis", "adaptation"],
+  "category": "Analysis",
+  "status": "active",
+  "homepage": "https://github.com/Aly-Joseph/J.A.R.V.I.S",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aly-Joseph/J.A.R.V.I.S.git"
+  },
+  "dependencies": [
+    "re",
+    "textblob"
+  ],
+  "capabilities": [
+    "emotion-detection",
+    "sentiment-analysis",
+    "tone-adaptation",
+    "behavior-adjustment"
+  ],
+  "requiredFiles": [
+    "emotion_ai.py",
+    "emotion.py"
+  ],
+  "interfaces": {
+    "detect_emotion": {
+      "description": "Detect emotional state from text",
+      "parameters": {"text": "str"},
+      "returns": "str"
+    }
+  }
+}

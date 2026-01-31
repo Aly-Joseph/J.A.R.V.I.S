@@ -1,0 +1,39 @@
+{
+  "name": "AI Generation",
+  "slug": "ai-generation",
+  "version": "1.0.0",
+  "description": "GPT-powered code and content generation with context awareness",
+  "author": "Aly-Joseph",
+  "license": "MIT",
+  "keywords": ["ai", "generation", "code", "content", "gpt"],
+  "category": "AI",
+  "status": "active",
+  "homepage": "https://github.com/Aly-Joseph/J.A.R.V.I.S",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aly-Joseph/J.A.R.V.I.S.git"
+  },
+  "dependencies": [
+    "requests",
+    "python-dotenv"
+  ],
+  "capabilities": [
+    "code-generation",
+    "content-writing",
+    "context-awareness",
+    "multi-language",
+    "creative-generation"
+  ],
+  "requiredFiles": [
+    "universal_generator.py",
+    "dynamic_write_helper.py",
+    "brain.py"
+  ],
+  "interfaces": {
+    "generate_anything": {
+      "description": "Generate code or content",
+      "parameters": {"prompt": "str", "context": "dict"},
+      "returns": "str"
+    }
+  }
+}
