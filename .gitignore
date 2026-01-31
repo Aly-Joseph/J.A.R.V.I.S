@@ -1,29 +1,76 @@
 # ENV & Secrets
 .env
 .env.*
+.env.example
+
+# License (included separately)
+LICENSE
+LICENSE.txt
 
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
 
 # Virtual Environments
 venv/
 vision_env/
+env/
 
 # Node
 node_modules/
+node_modules.tar.gz
 
-# Local models / voices
+# Local models / voices (large files)
 piper/
 voices/
 xtts/
+*.onnx
+*.pt
+*.pth
+*.bin
+
+# Large library files
+*.so
+*.dll
+*.dylib
+torch/
+tensorflow/
+cuda/
 
 # Temp / tests
 tts_test.py
 xtts_test.py
 test_ui.py
 $null
+*.wav
+*.mp3
+*.flac
 
 # OS
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+
+# IDE
+*.swp
+*.swo
+*~
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+*.cache
+
+# Large binary files (>50MB)
+*.tar.gz
+*.zip
+*.rar
